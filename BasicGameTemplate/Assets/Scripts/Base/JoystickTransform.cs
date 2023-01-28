@@ -7,7 +7,6 @@ public class JoystickTransform : MonoBehaviour
     private Joystick joystick;
     private Rigidbody rb;
     private Animator animator;
-    private PlayerController _playerController;
     [SerializeField] private float MoveSpeed = 10f;
 
     private void Awake()
@@ -15,7 +14,6 @@ public class JoystickTransform : MonoBehaviour
         joystick = GameObject.FindGameObjectWithTag("Joystick").GetComponent<Joystick>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        _playerController = GetComponent<PlayerController>();
     }
 
     public void SetJoystick(float value)
