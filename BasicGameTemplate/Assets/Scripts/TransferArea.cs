@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class TransferArea : MonoBehaviour
 {
+    [SerializeField] private BoardManager boardManager;
     [SerializeField] private Board boardFirst, boardSecond;
     [SerializeField] private Vector3 movePosFirst, movePosSecond;
 
@@ -58,6 +59,9 @@ public class TransferArea : MonoBehaviour
                 });
                 break;
         }
+
+        if (boardManager.CheckBoards())
+            GameManager.Instance.LevelSuccess.Invoke();
     }
 
     public void TakeMarble(BoardMarble marble)

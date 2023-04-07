@@ -191,7 +191,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!1 &66911282
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +490,7 @@ GameObject:
   - component: {fileID: 126831456}
   - component: {fileID: 126831455}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -507,6 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!135 &126831456
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -540,7 +542,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -653,7 +655,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -695,6 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!1 &146988307
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +863,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -902,6 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!1 &169757255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,7 +1071,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1109,6 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!1 &174320875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,6 +1145,7 @@ RectTransform:
   m_Children:
   - {fileID: 335464944}
   - {fileID: 66911283}
+  - {fileID: 1241651469}
   m_Father: {fileID: 1971267710}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1532,6 +1538,7 @@ MonoBehaviour:
   - b
   coin: {fileID: 524015529}
   money: {fileID: 1788769096}
+  btnRestart: {fileID: 1241651470}
 --- !u!1 &287461611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,7 +2049,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2084,6 +2091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!1 &388944403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,7 +2307,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2341,6 +2349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!1 &417156621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,7 +2418,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2451,6 +2460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!1 &428303524
 GameObject:
   m_ObjectHideFlags: 0
@@ -2519,7 +2529,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2561,6 +2571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!1 &490398589
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,7 +2633,7 @@ GameObject:
   - component: {fileID: 508674560}
   - component: {fileID: 508674559}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2640,6 +2651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!135 &508674560
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2673,7 +2685,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2732,7 +2744,7 @@ GameObject:
   - component: {fileID: 509619591}
   - component: {fileID: 509619590}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2750,6 +2762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!135 &509619591
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2783,7 +2796,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2955,7 +2968,7 @@ GameObject:
   - component: {fileID: 527019286}
   - component: {fileID: 527019285}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2973,6 +2986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!135 &527019286
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3006,7 +3020,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4037,7 +4051,7 @@ GameObject:
   - component: {fileID: 803235532}
   - component: {fileID: 803235531}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4055,6 +4069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!135 &803235532
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4088,7 +4103,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4205,7 +4220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833420730}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.5, y: 0, z: -5}
+  m_LocalPosition: {x: 2.001499, y: -0.5, z: -0.2867093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4226,8 +4241,8 @@ Transform:
   - {fileID: 1454604683}
   - {fileID: 2002575202}
   - {fileID: 174088101}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1076865393}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &834158632
 GameObject:
@@ -4340,7 +4355,7 @@ GameObject:
   - component: {fileID: 851659504}
   - component: {fileID: 851659503}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4358,6 +4373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!135 &851659504
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4391,7 +4407,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5037,7 +5053,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5079,6 +5095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!1 &1052538362
 GameObject:
   m_ObjectHideFlags: 0
@@ -5176,6 +5193,56 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1076865391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1076865393}
+  - component: {fileID: 1076865392}
+  m_Layer: 0
+  m_Name: BoardManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1076865392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076865391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4400e2a38cfea54bb5403f28f52cbd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boards:
+  - {fileID: 1861397305}
+  - {fileID: 833420732}
+--- !u!4 &1076865393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076865391}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.49850106, y: 0.5, z: -4.7132907}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 833420733}
+  - {fileID: 1861397306}
+  - {fileID: 1639105011}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1101947098
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,6 +5487,127 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1241651468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1241651469}
+  - component: {fileID: 1241651472}
+  - component: {fileID: 1241651471}
+  - component: {fileID: 1241651470}
+  m_Layer: 5
+  m_Name: RetryButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1241651469
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241651468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 174320876}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -300, y: -300}
+  m_SizeDelta: {x: 250, y: 250}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1241651470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241651468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1241651471}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1241651471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241651468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 4b00db671a20143a8be8c3b5301d6a23, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1241651472
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241651468}
+  m_CullTransparentMesh: 1
 --- !u!1 &1256224425
 GameObject:
   m_ObjectHideFlags: 0
@@ -5531,7 +5719,7 @@ GameObject:
   - component: {fileID: 1282061190}
   - component: {fileID: 1282061189}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5549,6 +5737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!135 &1282061190
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5582,7 +5771,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5708,7 +5897,7 @@ GameObject:
   - component: {fileID: 1301732571}
   - component: {fileID: 1301732570}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5726,6 +5915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!135 &1301732571
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5759,7 +5949,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5872,7 +6062,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5914,6 +6104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!1 &1448504343
 GameObject:
   m_ObjectHideFlags: 0
@@ -5982,7 +6173,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6024,6 +6215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!1 &1454604682
 GameObject:
   m_ObjectHideFlags: 0
@@ -6092,7 +6284,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6134,6 +6326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!1 &1491649671
 GameObject:
   m_ObjectHideFlags: 0
@@ -6202,7 +6395,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6244,6 +6437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!1 &1537214951
 GameObject:
   m_ObjectHideFlags: 0
@@ -6444,7 +6638,7 @@ GameObject:
   - component: {fileID: 1560048932}
   - component: {fileID: 1560048931}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6462,6 +6656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!135 &1560048932
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6495,7 +6690,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6651,7 +6846,7 @@ GameObject:
   - component: {fileID: 1611684599}
   - component: {fileID: 1611684598}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6669,6 +6864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!135 &1611684599
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6702,7 +6898,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6823,6 +7019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c39b05fbd81dc4285438ca289823e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boardManager: {fileID: 1076865392}
   boardFirst: {fileID: 833420732}
   boardSecond: {fileID: 1861397305}
   movePosFirst: {x: 0.49850106, y: 0.5, z: -4.7132907}
@@ -6838,13 +7035,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639105009}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.49850106, y: 0.5, z: -4.7132907}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1076865393}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1639105012
 BoxCollider:
@@ -6857,8 +7054,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.3627872, y: 1.6813937, z: 3.1844668}
-  m_Center: {x: -0.6813936, y: 0.34069687, z: 0.010020494}
+  m_Size: {x: 2.002061, y: 1.6813937, z: 3.1844668}
+  m_Center: {x: -0.08877182, y: 0.34069687, z: 0.010020494}
 --- !u!1 &1649359832
 GameObject:
   m_ObjectHideFlags: 0
@@ -6873,7 +7070,7 @@ GameObject:
   - component: {fileID: 1649359834}
   - component: {fileID: 1649359833}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6891,6 +7088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!135 &1649359834
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6924,7 +7122,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7157,7 +7355,7 @@ GameObject:
   - component: {fileID: 1689847519}
   - component: {fileID: 1689847518}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7175,6 +7373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!135 &1689847519
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7208,7 +7407,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7321,7 +7520,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7363,6 +7562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!1 &1697283752
 GameObject:
   m_ObjectHideFlags: 0
@@ -7377,7 +7577,7 @@ GameObject:
   - component: {fileID: 1697283754}
   - component: {fileID: 1697283753}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7395,6 +7595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!135 &1697283754
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7428,7 +7629,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8184,7 +8385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861397303}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.75, y: 0, z: -5}
+  m_LocalPosition: {x: -3.248501, y: -0.5, z: -0.2867093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8202,8 +8403,8 @@ Transform:
   - {fileID: 527019289}
   - {fileID: 803235535}
   - {fileID: 1911239201}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1076865393}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1879150018
 GameObject:
@@ -8350,7 +8551,7 @@ GameObject:
   - component: {fileID: 1911239198}
   - component: {fileID: 1911239197}
   m_Layer: 0
-  m_Name: Pawn
+  m_Name: Pawn14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8368,6 +8569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!135 &1911239198
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8401,7 +8603,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8514,7 +8716,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8556,6 +8758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!1 &1960219757
 GameObject:
   m_ObjectHideFlags: 0
@@ -8624,7 +8827,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec632c557b3d68a48b346bb5f167acb3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8666,6 +8869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 0
 --- !u!1 &1971267706
 GameObject:
   m_ObjectHideFlags: 0
@@ -8840,7 +9044,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7ea5dbac55fd844b9e69d31299cc71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8882,6 +9086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174d8f29fedd57b43b6aab6bc286e5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marbleColors: 1
 --- !u!1 &2021241114
 GameObject:
   m_ObjectHideFlags: 0

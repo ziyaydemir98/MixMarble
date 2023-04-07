@@ -12,6 +12,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private List<string> moneyMulti = new();
     [SerializeField] private GameObject coin, money;
 
+    [SerializeField] private Button btnRestart;
+    
     private Canvas UICanvas;
 
     private Button Next, Restart;
@@ -45,6 +47,7 @@ public class UIController : MonoBehaviour
 
         Next.onClick.AddListener(() => levelManager.LoadLevel(1));
         Restart.onClick.AddListener(() => levelManager.LoadLevel(0));
+        btnRestart.onClick.AddListener(() =>levelManager.LoadLevel(0));
     }
 
     void ShowPanel(GameObject panel, bool canvasMode = false)

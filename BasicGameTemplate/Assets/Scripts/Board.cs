@@ -12,11 +12,7 @@ public class Board : MonoBehaviour
     [Tooltip("Marbles in this index can be transferred to different boards.")]
     [Header("Transfer areas")]
     [SerializeField] private List<ConnectedTransferArea> changeAreas = new();
-    
-     
-    //Transfer values
-    
-    
+
     //Movement values
     private Camera _cam;
     private Vector3 _touchStart;
@@ -59,7 +55,27 @@ public class Board : MonoBehaviour
             GoBack();
         }
     }
+    public bool CheckAllMarbles()
+    {
+        var tempColor = marbles[0].Color;
+        
+        foreach (var marble in marbles)
+        {
+            if (marble != null)
+            {
+                tempColor = marble.Color;
+                break;
+            }    
+        }
+        
+        foreach (var marble in marbles)
+        {
+            if (marble != null && marble.Color != tempColor)
+                return false;
+        }
 
+        return true;
+    }
     #region Transfer Scripts
 
     private bool CheckCanMove()
