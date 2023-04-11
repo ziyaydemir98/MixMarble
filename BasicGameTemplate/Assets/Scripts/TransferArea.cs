@@ -47,6 +47,7 @@ public class TransferArea : MonoBehaviour
                 {
                     boardSecond.SetMarbles(this);
                     _inFirstPoint = false;
+                    if (boardManager.CheckBoards()) GameManager.Instance.LevelSuccess.Invoke();
                     _canTransfer = true;
                 });
                 break;
@@ -55,13 +56,11 @@ public class TransferArea : MonoBehaviour
                 {
                     boardFirst.SetMarbles(this);
                     _inFirstPoint = true;
+                    if (boardManager.CheckBoards()) GameManager.Instance.LevelSuccess.Invoke();
                     _canTransfer = true;
                 });
                 break;
         }
-
-        if (boardManager.CheckBoards())
-            GameManager.Instance.LevelSuccess.Invoke();
     }
 
     public void TakeMarble(BoardMarble marble)

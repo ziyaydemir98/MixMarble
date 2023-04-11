@@ -146,6 +146,7 @@ public class Board : MonoBehaviour
     }
 
     #endregion
+
     #region Marbles Movements
     
     private void GoForward()
