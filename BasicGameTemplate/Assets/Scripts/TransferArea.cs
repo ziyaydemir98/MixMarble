@@ -16,6 +16,17 @@ public class TransferArea : MonoBehaviour
     private bool _inFirstPoint = true;
     private bool _canTransfer = true;
 
+    /// <summary>
+    /// Added
+    /// </summary>
+    private void OnEnable()
+    {
+        GameManager.Instance.OnTransfer.AddListener(OnMouseDown);
+    }
+    private void OnDisable()
+    {
+        GameManager.Instance?.OnTransfer.RemoveListener(OnMouseDown);
+    }
     private void OnMouseDown()
     {
         if (!_canTransfer) return;
@@ -47,7 +58,12 @@ public class TransferArea : MonoBehaviour
                 {
                     boardSecond.SetMarbles(this);
                     _inFirstPoint = false;
-                    if (boardManager.CheckBoards()) GameManager.Instance.LevelSuccess.Invoke();
+                    if (boardManager.CheckBoards())
+                    {
+                        GameManager.Instance.LevelSuccess.Invoke();
+                        _canTransfer = false;
+                    }
+                    Debug.Log(boardManager.CheckBoards());
                     _canTransfer = true;
                 });
                 break;
@@ -56,7 +72,12 @@ public class TransferArea : MonoBehaviour
                 {
                     boardFirst.SetMarbles(this);
                     _inFirstPoint = true;
-                    if (boardManager.CheckBoards()) GameManager.Instance.LevelSuccess.Invoke();
+                    if (boardManager.CheckBoards())
+                    {
+                        GameManager.Instance.LevelSuccess.Invoke();
+                        _canTransfer = false;
+                    }
+                    Debug.Log(boardManager.CheckBoards());
                     _canTransfer = true;
                 });
                 break;

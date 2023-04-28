@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
+    private enum BoardColor { White = 0, Red = 1, Blue = 2, Black = 3, Green = 4 }
+    [SerializeField] private BoardColor boardColors;
+    private int ColorType => (int)boardColors;
+
     [Tooltip("List of marbles currently on the board")]
     [Header("Marbles in board")]
     [SerializeField] private List<BoardMarble> marbles = new();
@@ -26,7 +30,17 @@ public class Board : MonoBehaviour
 
         _canMove = CheckCanMove();
     }
-
+    //////////
+    private void OnEnable()
+    {
+        GameManager.Instance.BoardTouchDown.AddListener(OnMouseDown);
+        GameManager.Instance.BoardTouchUp.AddListener(OnMouseUp);
+    }
+    private void OnDisable()
+    {
+        GameManager.Instance?.BoardTouchDown.RemoveListener(OnMouseDown);
+        GameManager.Instance?.BoardTouchUp.RemoveListener(OnMouseUp);
+    }
     private void OnMouseDown()
     {
         if (!_canMove) return;
@@ -54,23 +68,29 @@ public class Board : MonoBehaviour
             //Toplar geri kayar
             GoBack();
         }
+        /////// Added
+        else if (distance < 0.05f && distance > -0.05f)
+        {
+            //Toplar yer degistirir
+            GameManager.Instance.OnTransfer.Invoke();
+        }
     }
     public bool CheckAllMarbles()
     {
-        var tempColor = marbles[0].Color;
-        
+        var tempColor = marbles[0].ColorType;
+
         foreach (var marble in marbles)
         {
             if (marble != null)
             {
-                tempColor = marble.Color;
+                tempColor = marble.ColorType;
                 break;
             }    
         }
         
         foreach (var marble in marbles)
         {
-            if (marble != null && marble.Color != tempColor)
+            if (marble != null && marble.ColorType != tempColor)
                 return false;
         }
 

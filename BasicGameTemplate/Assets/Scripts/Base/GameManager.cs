@@ -11,6 +11,12 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector] public UnityEvent LevelSuccess = new();
     [HideInInspector] public UnityEvent LevelFail = new();
     [HideInInspector] public UnityEvent OnMoneyChange = new();
+    /// <summary>
+    /// Added
+    /// </summary>
+    [HideInInspector] public UnityEvent BoardTouchDown = new();
+    [HideInInspector] public UnityEvent BoardTouchUp = new();
+    [HideInInspector] public UnityEvent OnTransfer = new();
 
     private float playerMoney;
     public float PlayerMoney

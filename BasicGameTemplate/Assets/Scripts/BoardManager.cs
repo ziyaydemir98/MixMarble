@@ -16,4 +16,15 @@ public class BoardManager : MonoBehaviour
           }
           return true;
      }
+    private void Update() //////////// Added 
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameManager.Instance.BoardTouchDown.Invoke();
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            GameManager.Instance.BoardTouchUp.Invoke();
+        }
+    }
 }
