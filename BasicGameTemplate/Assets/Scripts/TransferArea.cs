@@ -7,37 +7,35 @@ using DG.Tweening;
 public class TransferArea : MonoBehaviour
 {
     [SerializeField] private BoardManager boardManager;
-    [SerializeField] private Board boardFirst, boardSecond;
+    private Board boardFirst, boardSecond;
     [SerializeField] private Vector3 movePosFirst, movePosSecond;
 
 
     public List<BoardMarble> CarriedMarbles = new();
     
-    private bool _inFirstPoint = true;
-    private bool _canTransfer = true;
+    public static bool transferAreaPoint = true;
 
     /// <summary>
     /// Added
     /// </summary>
+
+
     private void OnEnable()
     {
-        GameManager.Instance.OnTransfer.AddListener(OnMouseDown);
+        BoardsTake();
+        GameManager.Instance.OnTransfer.AddListener(LoadMarbles);
+        GameManager.Instance.TransferAreaUpdate.AddListener(BoardsTake);
     }
     private void OnDisable()
     {
-        GameManager.Instance?.OnTransfer.RemoveListener(OnMouseDown);
-    }
-    private void OnMouseDown()
-    {
-        if (!_canTransfer) return;
-        
-        _canTransfer = false;
-        LoadMarbles();
+        GameManager.Instance?.OnTransfer.RemoveListener(LoadMarbles);
+        GameManager.Instance?.TransferAreaUpdate.RemoveListener(BoardsTake);
     }
 
     private void LoadMarbles()
     {
-        if (_inFirstPoint)
+        Debug.Log("CALISTI");
+        if (transferAreaPoint)
         {
             boardFirst.GetMarbles(this);
         }
@@ -49,36 +47,33 @@ public class TransferArea : MonoBehaviour
         Mover();
     }
 
-    private void Mover()
+    private void Mover() // Boncuk aktarim Algoritmasi.
     {
-        switch (_inFirstPoint)
+        switch (transferAreaPoint) // Transfer Alanim nerede?
         {
-            case true:
-                gameObject.transform.DOMove(movePosSecond,1f).OnComplete(() =>
+            case true: 
+                gameObject.transform.DOMove(movePosSecond, BoardManager._timer).OnComplete(() =>
                 {
-                    boardSecond.SetMarbles(this);
-                    _inFirstPoint = false;
+                    boardSecond.SetMarbles(this); 
+                    transferAreaPoint = false;
+                    boardManager.GetComponent<InputManager>().ButtonPressed = false;
                     if (boardManager.CheckBoards())
                     {
                         GameManager.Instance.LevelSuccess.Invoke();
-                        _canTransfer = false;
                     }
-                    Debug.Log(boardManager.CheckBoards());
-                    _canTransfer = true;
+                    
                 });
                 break;
             case false:
-                gameObject.transform.DOMove(movePosFirst,1f).OnComplete(() =>
+                gameObject.transform.DOMove(movePosFirst, BoardManager._timer).OnComplete(() =>
                 {
                     boardFirst.SetMarbles(this);
-                    _inFirstPoint = true;
+                    transferAreaPoint = true;
+                    boardManager.GetComponent<InputManager>().ButtonPressed = false;
                     if (boardManager.CheckBoards())
                     {
                         GameManager.Instance.LevelSuccess.Invoke();
-                        _canTransfer = false;
                     }
-                    Debug.Log(boardManager.CheckBoards());
-                    _canTransfer = true;
                 });
                 break;
         }
@@ -87,5 +82,11 @@ public class TransferArea : MonoBehaviour
     public void TakeMarble(BoardMarble marble)
     {
         marble.transform.parent = transform;
+    }
+
+    private void BoardsTake()
+    {
+        boardFirst = boardManager.Boards[0];
+        boardSecond = boardManager.Boards[1];
     }
 }

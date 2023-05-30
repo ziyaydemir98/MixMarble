@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector] public UnityEvent BoardTouchDown = new();
     [HideInInspector] public UnityEvent BoardTouchUp = new();
     [HideInInspector] public UnityEvent OnTransfer = new();
+    [HideInInspector] public UnityEvent TransferAreaUpdate = new();
 
     private float playerMoney;
     public float PlayerMoney

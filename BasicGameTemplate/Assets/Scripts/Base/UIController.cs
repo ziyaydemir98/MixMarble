@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -49,6 +50,10 @@ public class UIController : MonoBehaviour
         Restart.onClick.AddListener(() => levelManager.LoadLevel(0));
         btnRestart.onClick.AddListener(() =>levelManager.LoadLevel(0));
     }
+    private void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
     void ShowPanel(GameObject panel, bool canvasMode = false)
     {
@@ -67,7 +72,7 @@ public class UIController : MonoBehaviour
         WinPanel.SetActive(false);
         LosePanel.SetActive(false);
         InGamePanel.SetActive(true);
-        ShowTutorial();
+        //ShowTutorial();
     }
 
     void SetMoneyText()

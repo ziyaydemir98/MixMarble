@@ -6,36 +6,36 @@ using DG.Tweening;
 
 public class BoardMarble : MonoBehaviour
 {
-    private enum MarbleColor { White = 0, Red = 1, Blue = 2, Black = 3, Green = 4}
-    [SerializeField] private MarbleColor marbleColors;
-
-    public int ColorType => (int)marbleColors;
-    private void OnEnable()
+    private int marbleColorValue;
+    public int MarbleColorValue
     {
-        Color color;
-        color = gameObject.GetComponent<MeshRenderer>().material.color;
-        switch (ColorType)
+        get
         {
-            case 0:
-                color = Color.white;
-                break;
-            case 1:
-                color = Color.red;
-                break;
-            case 2:
-                color = Color.blue;
-                break;
-            case 3:
-                color = Color.black;
-                break;
-            case 4:
-                color = Color.green;
-                break;
+            return marbleColorValue;
         }
-        gameObject.GetComponent<MeshRenderer>().material.color = color;
+        set
+        {
+            marbleColorValue = value;
+        }
+    }
+    public bool dyed
+    {
+        get 
+        {
+            return dyed;
+        }
+        set
+        {
+            dyed = value;
+        }
+    }
+    public void MarbleDye(Material color)
+    {
+        this.gameObject.GetComponent<MeshRenderer>().material = color;
     }
     public void GoToTarget(Vector3 target)
     {
-        transform.DOMove(target,0.5f);
+        transform.DOMove(target, BoardManager._timer);
+        
     }
 }
