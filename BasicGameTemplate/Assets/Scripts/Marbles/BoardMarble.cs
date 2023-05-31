@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class BoardMarble : MonoBehaviour
 {
+    #region Variables
     private int marbleColorValue;
     public int MarbleColorValue
     {
@@ -18,24 +19,20 @@ public class BoardMarble : MonoBehaviour
             marbleColorValue = value;
         }
     }
-    public bool dyed
-    {
-        get 
-        {
-            return dyed;
-        }
-        set
-        {
-            dyed = value;
-        }
-    }
-    public void MarbleDye(Material color)
+
+    #endregion
+
+    #region Fuctions
+    public void MarbleDye(Material color) // Painting
     {
         this.gameObject.GetComponent<MeshRenderer>().material = color;
     }
-    public void GoToTarget(Vector3 target)
+
+    public void GoToTarget(Vector3 target) // Which position will the bead go to during marble scrolling?
     {
         transform.DOMove(target, BoardManager._timer);
-        
+
     }
+    #endregion
+
 }

@@ -6,19 +6,14 @@ using DG.Tweening;
 
 public class TransferArea : MonoBehaviour
 {
+    #region Variables
     [SerializeField] private BoardManager boardManager;
-    private Board boardFirst, boardSecond;
     [SerializeField] private Vector3 movePosFirst, movePosSecond;
-
-
     public List<BoardMarble> CarriedMarbles = new();
-    
     public static bool transferAreaPoint = true;
 
-    /// <summary>
-    /// Added
-    /// </summary>
-
+    private Board boardFirst, boardSecond;
+    #endregion
 
     private void OnEnable()
     {
@@ -32,7 +27,8 @@ public class TransferArea : MonoBehaviour
         GameManager.Instance?.TransferAreaUpdate.RemoveListener(BoardsTake);
     }
 
-    private void LoadMarbles()
+    #region Functions
+    private void LoadMarbles() //Which board does the transfer agent go to?
     {
         Debug.Log("CALISTI");
         if (transferAreaPoint)
@@ -43,25 +39,25 @@ public class TransferArea : MonoBehaviour
         {
             boardSecond.GetMarbles(this);
         }
-        
+
         Mover();
     }
 
-    private void Mover() // Boncuk aktarim Algoritmasi.
+    private void Mover() // bead transfer
     {
-        switch (transferAreaPoint) // Transfer Alanim nerede?
+        switch (transferAreaPoint) // Where is my Transfer Area?
         {
-            case true: 
+            case true:
                 gameObject.transform.DOMove(movePosSecond, BoardManager._timer).OnComplete(() =>
                 {
-                    boardSecond.SetMarbles(this); 
+                    boardSecond.SetMarbles(this);
                     transferAreaPoint = false;
                     boardManager.GetComponent<InputManager>().ButtonPressed = false;
                     if (boardManager.CheckBoards())
                     {
                         GameManager.Instance.LevelSuccess.Invoke();
                     }
-                    
+
                 });
                 break;
             case false:
@@ -79,14 +75,16 @@ public class TransferArea : MonoBehaviour
         }
     }
 
-    public void TakeMarble(BoardMarble marble)
+    public void TakeMarble(BoardMarble marble) //pass the swap beads into the transfer agent
     {
         marble.transform.parent = transform;
     }
 
-    private void BoardsTake()
+    private void BoardsTake() //Updates the destination of the transfer agent.
     {
         boardFirst = boardManager.Boards[0];
         boardSecond = boardManager.Boards[1];
     }
+    #endregion
+
 }

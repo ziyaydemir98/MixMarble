@@ -21,8 +21,6 @@ public class UIController : MonoBehaviour
 
     private LevelManager levelManager;
 
-    private Settings settings;
-
     private void Awake()
     {
         ScriptInitialize();
@@ -37,7 +35,6 @@ public class UIController : MonoBehaviour
     void ScriptInitialize()
     {
         levelManager = FindObjectOfType<LevelManager>();
-        settings = FindObjectOfType<Settings>();
         UICanvas = GetComponentInParent<Canvas>();
     }
 
@@ -49,10 +46,6 @@ public class UIController : MonoBehaviour
         Next.onClick.AddListener(() => levelManager.LoadLevel(1));
         Restart.onClick.AddListener(() => levelManager.LoadLevel(0));
         btnRestart.onClick.AddListener(() =>levelManager.LoadLevel(0));
-    }
-    private void ReloadCurrentScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void ShowPanel(GameObject panel, bool canvasMode = false)
@@ -119,10 +112,5 @@ public class UIController : MonoBehaviour
             GameManager.Instance.LevelSuccess.RemoveListener(() => ShowPanel(WinPanel, true));
             GameManager.Instance.GameReady.RemoveListener(GameReady);
         }
-    }
-
-    void ShowTutorial()
-    {
-        TutorialPanel.transform.GetChild(settings.GetTutorialIndex()).gameObject.SetActive(true);
     }
 }

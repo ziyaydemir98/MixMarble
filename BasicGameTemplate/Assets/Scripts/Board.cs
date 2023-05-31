@@ -7,9 +7,10 @@ using UnityEngine.UI;
 
 public class Board : MonoBehaviour
 {
+    #region Variables
+
     private enum BoardType { Primary = 0, Secondary = 1 }
     [SerializeField] private BoardType boardTypes;
-    public Material Color;
     public int BoardTypeInt
     {
         get
@@ -20,9 +21,8 @@ public class Board : MonoBehaviour
     }
 
 
-    private enum BoardColor { White = 0, Red = 1, Blue = 2, Green = 3, Orange = 4}
+    private enum BoardColor { White = 0, Red = 1, Blue = 2, Green = 3, Orange = 4 }
     [SerializeField] private BoardColor boardColors;
-
     public int BoardColors
     {
         get
@@ -52,13 +52,14 @@ public class Board : MonoBehaviour
     [Header("Transfer areas")]
     [SerializeField] private List<ConnectedTransferArea> changeAreas = new();
 
+
     [SerializeField] Canvas succesCanvas;
-    public bool succesBoard = false;
-    Color color;
+    public Material Color; // The material to be given to the beads that should belong to the board
+    public bool succesBoard = false; //Is the board complete?
     public bool _canMove; // Boncuklari hareket ettirilebilir Board bu mu?
     private TextMeshProUGUI textMeshProUGUI;
-
-
+    Color color;
+    #endregion
 
 
 
@@ -68,8 +69,9 @@ public class Board : MonoBehaviour
         BoardDye();
     }
 
+    #region Functions
 
-    public bool CheckAllMarbles()
+    public bool CheckAllMarbles() //Does the color of the board match the beads on the board? 
     {
         foreach (var marble in marbles)
         {
@@ -78,19 +80,57 @@ public class Board : MonoBehaviour
                 return false;
             }
         }
-        succesBoard = true;
-        succesCanvas.gameObject.SetActive(true);
+        if ((int)boardTypes != 0)
+        {
+            succesBoard = true;
+            succesCanvas.gameObject.SetActive(true);
+        }
         return true;
-        
+
     }
 
+    private void BoardDye() //paint your board background 
+    {
+        foreach (Transform child in this.gameObject.transform)
+        {
+            if (child.name == "Background")
+            {
+                foreach (Transform backimages in child.transform)
+                {
+                    switch (BoardColors)
+                    {
+                        case 0:
+                            color = new Color(1, 1, 1, 0.25f); // White
+                            break;
+                        case 1:
+                            color = new Color(1, 0, 0, 0.25f); // Red
+                            break;
+                        case 2:
+                            color = new Color(0.5f, 0.5f, 1f, 0.25f); // Blue
+                            break;
+                        case 3:
+                            color = new Color(0, 1, 0, 0.25f); // Green
+                            break;
+                        case 4:
+                            color = new Color(1, 0.5f, 0, 0.25f); // Orange
+                            break;
+                    }
+                    backimages.GetComponent<Image>().color = color;
 
+                    if (backimages.name == "TitleBackground")
+                    {
+                        textMeshProUGUI = backimages.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+                    }
+                }
+            }
+        }
+        textMeshProUGUI.text = boardColors.ToString();
+    }
 
+    #endregion
 
 
     #region Transfer Scripts
-
-
 
     public void GetMarbles(TransferArea shipper) // marbles into transporter
     {
@@ -115,10 +155,6 @@ public class Board : MonoBehaviour
         }
     }
 
-
-
-
-
     public void SetMarbles(TransferArea shipper) // marbles into board
     {
         foreach (var area in changeAreas)
@@ -142,26 +178,22 @@ public class Board : MonoBehaviour
         _canMove = true;
     }
 
-
-
-
     #endregion
 
 
-
-
-
-
-
-
-
-
-
-
-
     #region Marbles Movements
-    
 
+    private bool CheckCanMove() //Who is the movable board?
+    {
+        foreach (var marble in marbles)
+        {
+            if (marble == null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public void GoForward() 
     {
@@ -197,10 +229,6 @@ public class Board : MonoBehaviour
         
     }
 
-
-
-
-
     public void GoBack()
     {
         if (!_canMove) return;
@@ -235,66 +263,13 @@ public class Board : MonoBehaviour
         
     }
 
-
-
-
-    private bool CheckCanMove() // SADECE BUTUN BONCUKLARIN OLDUGU TAHTA HAREKET EDEBILECEGI ICIN TAHTANIN ICINDE NULL DONDUREN BIR BONCUK VAR MI YOK MU?
-    {
-        foreach (var marble in marbles) 
-        {
-            if (marble == null)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
+   
 
     #endregion
 
-    private void BoardDye()
-    {
-        foreach (Transform child in this.gameObject.transform)
-        {
-            if(child.name=="Background")
-            {
-                foreach (Transform backimages in child.transform)
-                {                 
-                    switch (BoardColors)
-                    {
-                        case 0:
-                            color = new Color(1, 1, 1, 0.25f); // BEYAZ
-                            break;
-                        case 1:
-                            color = new Color(1, 0, 0, 0.25f); // KIRMIZ
-                            break;
-                        case 2:
-                            color = new Color(0.5f, 0.5f, 1f, 0.25f); // MAVI
-                            break;
-                        case 3:
-                            color = new Color(0, 1, 0, 0.25f); // YESIL
-                            break;
-                        case 4:
-                            color = new Color(1, 0.5f, 0, 0.25f); // TURUNCU
-                            break;
-                    }
-                    backimages.GetComponent<Image>().color = color;
-
-                    if (backimages.name == "TitleBackground")
-                    {
-                        textMeshProUGUI = backimages.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-                    }
-                }
-            }
-        }
-        textMeshProUGUI.text = boardColors.ToString();
-    }
+    
 }
 
-//private void SuccesBoard()
-//{
-    
-//}
 
 
 

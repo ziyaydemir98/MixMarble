@@ -7,26 +7,27 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler,IPointerEnterHandler
 {
+    #region Variables
     [SerializeField] BoardManager boardManager;
     InputManager inputManager;
-    Button button;
-    private enum ButtonType { Up = 0, Down = 1, Transfer = 2 }
-    [SerializeField] private ButtonType buttonType;
     private string buttonName;
     private bool _isItOn;
+    #endregion
+
 
     private void Awake()
     {
         inputManager= boardManager.GetComponent<InputManager>();
-        button = gameObject.GetComponent<Button>();
     }
-    public void OnPointerDown(PointerEventData eventData)
+
+    #region Functions
+    public void OnPointerDown(PointerEventData eventData) // button down
     {
         buttonName = gameObject.name;
         inputManager.ButtonPressed = true;
     }
 
-    public void OnPointerUp(PointerEventData eventData) // Button bırakıldı
+    public void OnPointerUp(PointerEventData eventData) // button press finished
     {
         if (!_isItOn)
         {
@@ -34,18 +35,20 @@ public class ButtonManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData) // Button üzerinden çıkıldı.
+    public void OnPointerExit(PointerEventData eventData) // cursor entered button
     {
-        if (buttonName==gameObject.name)
+        if (buttonName == gameObject.name)
         {
             _isItOn = false;
         }
     }
-    public void OnPointerEnter(PointerEventData eventData) // Button uzerine gelindi.
+    public void OnPointerEnter(PointerEventData eventData) // cursor left button
     {
         if (buttonName == gameObject.name)
         {
             _isItOn = true;
         }
     }
+    #endregion
+
 }

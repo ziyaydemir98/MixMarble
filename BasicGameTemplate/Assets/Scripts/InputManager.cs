@@ -6,10 +6,15 @@ using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
+    #region Variables
+    public List<Button> _buttons = new List<Button>();
+    [SerializeField] AudioSource _audioSourceButton;
+    [SerializeField] AudioSource _audioSourceBoardButton;
+
     private BoardManager boardManager;
     private bool onMove;
     private bool buttonPressed;
-    public bool ButtonPressed 
+    public bool ButtonPressed
     {
         get
         {
@@ -23,10 +28,7 @@ public class InputManager : MonoBehaviour
     private Camera _cam;
     private Vector2 _touchStart, _touchEnd;
     float _distance;
-    public List<Button> _buttons = new List<Button>();
-    
-    [SerializeField] AudioSource _audioSourceButton;
-    [SerializeField] AudioSource _audioSourceBoardButton;
+    #endregion
 
 
     private void Awake()
@@ -56,7 +58,6 @@ public class InputManager : MonoBehaviour
             _audioSourceButton.Play();
         });
     }
-
     private void OnMouseDown()
     {
         _touchStart = _cam.ScreenToViewportPoint(Input.mousePosition);
@@ -68,7 +69,7 @@ public class InputManager : MonoBehaviour
         _distance = _touchEnd.y - _touchStart.y;
         if (_distance > 0.05f)
         {
-            //Toplar ileri kayar
+            // Marbles moving up
             boardManager.Boards.ForEach(obj =>
             {
                 if (obj._canMove)
@@ -82,7 +83,7 @@ public class InputManager : MonoBehaviour
 
         else if (_distance < -0.05f)
         {
-            //Toplar geri kayar
+            //  Marbles moving down
             boardManager.Boards.ForEach(obj =>
             {
                 if (obj._canMove)
@@ -95,7 +96,7 @@ public class InputManager : MonoBehaviour
         }
     }
 
-
+    #region Functions
     public IEnumerator IsMoving()
     {
         onMove = true;
@@ -109,17 +110,17 @@ public class InputManager : MonoBehaviour
         {
             button.interactable = false;
         }
-        yield return new WaitForSeconds(BoardManager._timer+0.1f);
+        yield return new WaitForSeconds(BoardManager._timer + 0.1f);
         foreach (var button in _buttons)
         {
-            if (TransferArea.transferAreaPoint) // TASINABILEN 3 TAS PRIMARY TAHTADA ISE BUTUN BUTONLARI AKTIFLESTIR
+            if (TransferArea.transferAreaPoint) 
             {
                 button.interactable = true;
             }
-            else // DEGILSE SADECE TRANSFERI AKTIFLESTIR
+            else 
             {
-                if(button.name=="TransferButton")
-                {        
+                if (button.name == "TransferButton")
+                {
                     button.interactable = true;
                 }
             }
@@ -127,7 +128,6 @@ public class InputManager : MonoBehaviour
             {
                 if (button.name == "TransferButton")
                 {
-
                     button.interactable = false;
                 }
                 button.interactable = true;
@@ -135,5 +135,10 @@ public class InputManager : MonoBehaviour
         }
         StopCoroutine(IsAction());
     }
+    #endregion
+    
+
+
+    
 
 }
