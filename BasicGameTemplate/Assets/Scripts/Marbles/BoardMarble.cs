@@ -7,18 +7,7 @@ using DG.Tweening;
 public class BoardMarble : MonoBehaviour
 {
     #region Variables
-    private int marbleColorValue;
-    public int MarbleColorValue
-    {
-        get
-        {
-            return marbleColorValue;
-        }
-        set
-        {
-            marbleColorValue = value;
-        }
-    }
+    public int MarbleColorValue;
 
     #endregion
 
@@ -30,7 +19,7 @@ public class BoardMarble : MonoBehaviour
 
     public void GoToTarget(Vector3 target) // Which position will the bead go to during marble scrolling?
     {
-        transform.DOMove(target, BoardManager._timer);
+        transform.DOMove(target, BoardManager.Timer);
 
     }
     #endregion

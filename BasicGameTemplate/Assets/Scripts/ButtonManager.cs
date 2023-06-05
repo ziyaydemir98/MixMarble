@@ -10,20 +10,20 @@ public class ButtonManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     #region Variables
     [SerializeField] BoardManager boardManager;
     InputManager inputManager;
-    private string buttonName;
+    private string _buttonName;
     private bool _isItOn;
     #endregion
 
 
-    private void Awake()
+    private void OnEnable()
     {
-        inputManager= boardManager.GetComponent<InputManager>();
+        inputManager = boardManager.GetComponent<InputManager>();
     }
 
     #region Functions
     public void OnPointerDown(PointerEventData eventData) // button down
     {
-        buttonName = gameObject.name;
+        _buttonName = gameObject.name;
         inputManager.ButtonPressed = true;
     }
 
@@ -37,14 +37,14 @@ public class ButtonManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     public void OnPointerExit(PointerEventData eventData) // cursor entered button
     {
-        if (buttonName == gameObject.name)
+        if (_buttonName == gameObject.name)
         {
             _isItOn = false;
         }
     }
     public void OnPointerEnter(PointerEventData eventData) // cursor left button
     {
-        if (buttonName == gameObject.name)
+        if (_buttonName == gameObject.name)
         {
             _isItOn = true;
         }

@@ -29,7 +29,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                         m_Instance = singletonObject.AddComponent<T>();
                         singletonObject.name = typeof(T).ToString() + " (Singleton)";
 
-                        DontDestroyOnLoad(singletonObject);
+                        //DontDestroyOnLoad(singletonObject);
                     }
                 }
 

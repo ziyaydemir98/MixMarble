@@ -7,64 +7,36 @@ using UnityEngine.UI;
 public class InputManager : MonoBehaviour
 {
     #region Variables
-    public List<Button> _buttons = new List<Button>();
-    [SerializeField] AudioSource _audioSourceButton;
-    [SerializeField] AudioSource _audioSourceBoardButton;
-
     private BoardManager boardManager;
     private bool onMove;
-    private bool buttonPressed;
-    public bool ButtonPressed
-    {
-        get
-        {
-            return buttonPressed;
-        }
-        set
-        {
-            buttonPressed = value;
-        }
-    }
+    public bool ButtonPressed;
     private Camera _cam;
     private Vector2 _touchStart, _touchEnd;
     float _distance;
     #endregion
 
-
-    private void Awake()
+    private void OnEnable()
     {
-        
-        _cam = Camera.main;
         boardManager = this.gameObject.GetComponent<BoardManager>();
-        _buttons[0].onClick.AddListener(() =>
-        {    
-            boardManager.BoardForward(true);
-            StartCoroutine(IsMoving());
-            StartCoroutine(IsAction());
-            _audioSourceBoardButton.Play();
-        });
-        _buttons[1].onClick.AddListener(() =>
-        {  
-            boardManager.BoardForward(false);
-            StartCoroutine(IsMoving());
-            StartCoroutine(IsAction());
-            _audioSourceBoardButton.Play();
-        });
-        _buttons[2].onClick.AddListener(() =>
-        {
-            GameManager.Instance.OnTransfer.Invoke();
-            StartCoroutine(IsMoving());
-            StartCoroutine(IsAction());
-            _audioSourceButton.Play();
-        });
+        _cam = Camera.main;
+        GameManager.Instance.NextButtonEvent.AddListener(NextBoardButton);
+        GameManager.Instance.PreviousButtonEvent.AddListener(PreviousBoardButton);
+        GameManager.Instance.TransferButtonEvent.AddListener(TranferButton);
     }
+    private void OnDisable()
+    {
+        GameManager.Instance?.NextButtonEvent.RemoveListener(NextBoardButton);
+        GameManager.Instance?.PreviousButtonEvent.RemoveListener(PreviousBoardButton);
+        GameManager.Instance?.TransferButtonEvent.RemoveListener(TranferButton);
+    }
+
     private void OnMouseDown()
     {
         _touchStart = _cam.ScreenToViewportPoint(Input.mousePosition);
     }
     private void OnMouseUp()
     {
-        if (onMove || buttonPressed) return;
+        if (onMove || ButtonPressed) return;
         _touchEnd = _cam.ScreenToViewportPoint(Input.mousePosition);
         _distance = _touchEnd.y - _touchStart.y;
         if (_distance > 0.05f)
@@ -72,11 +44,11 @@ public class InputManager : MonoBehaviour
             // Marbles moving up
             boardManager.Boards.ForEach(obj =>
             {
-                if (obj._canMove)
+                if (obj.CanMove)
                 {
                     obj.GoForward();
                     StartCoroutine(IsMoving());
-                    StartCoroutine(IsAction());
+                    //StartCoroutine(IsAction());
                 }
             });
         }
@@ -86,55 +58,40 @@ public class InputManager : MonoBehaviour
             //  Marbles moving down
             boardManager.Boards.ForEach(obj =>
             {
-                if (obj._canMove)
+                if (obj.CanMove)
                 {
                     obj.GoBack();
                     StartCoroutine(IsMoving());
-                    StartCoroutine(IsAction());
+                    //StartCoroutine(IsAction());
                 }
             });
         }
     }
 
     #region Functions
+    public void NextBoardButton()
+    {
+        boardManager.BoardForward(false);
+        StartCoroutine(IsMoving());
+    }
+    public void PreviousBoardButton()
+    {
+        boardManager.BoardForward(true);
+        StartCoroutine(IsMoving());
+    }
+    public void TranferButton()
+    {
+        GameManager.Instance.OnTransfer.Invoke();
+        StartCoroutine(IsMoving());
+    }
     public IEnumerator IsMoving()
     {
         onMove = true;
-        yield return new WaitForSeconds(BoardManager._timer + 0.1f);
+        yield return new WaitForSeconds(BoardManager.Timer + 0.1f);
         onMove = false;
         StopCoroutine(IsMoving());
     }
-    public IEnumerator IsAction()
-    {
-        foreach (var button in _buttons)
-        {
-            button.interactable = false;
-        }
-        yield return new WaitForSeconds(BoardManager._timer + 0.1f);
-        foreach (var button in _buttons)
-        {
-            if (TransferArea.transferAreaPoint) 
-            {
-                button.interactable = true;
-            }
-            else 
-            {
-                if (button.name == "TransferButton")
-                {
-                    button.interactable = true;
-                }
-            }
-            if (boardManager.Boards[1].succesBoard)
-            {
-                if (button.name == "TransferButton")
-                {
-                    button.interactable = false;
-                }
-                button.interactable = true;
-            }
-        }
-        StopCoroutine(IsAction());
-    }
+    
     #endregion
     
 

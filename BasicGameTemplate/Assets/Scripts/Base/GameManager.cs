@@ -14,10 +14,11 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// Added
     /// </summary>
-    [HideInInspector] public UnityEvent BoardTouchDown = new();
-    [HideInInspector] public UnityEvent BoardTouchUp = new();
     [HideInInspector] public UnityEvent OnTransfer = new();
     [HideInInspector] public UnityEvent TransferAreaUpdate = new();
+    [HideInInspector] public UnityEvent NextButtonEvent = new();
+    [HideInInspector] public UnityEvent PreviousButtonEvent = new();
+    [HideInInspector] public UnityEvent TransferButtonEvent = new();
 
     private float playerMoney;
     public float PlayerMoney

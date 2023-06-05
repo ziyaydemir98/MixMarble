@@ -30,7 +30,6 @@ public class TransferArea : MonoBehaviour
     #region Functions
     private void LoadMarbles() //Which board does the transfer agent go to?
     {
-        Debug.Log("CALISTI");
         if (transferAreaPoint)
         {
             boardFirst.GetMarbles(this);
@@ -48,7 +47,7 @@ public class TransferArea : MonoBehaviour
         switch (transferAreaPoint) // Where is my Transfer Area?
         {
             case true:
-                gameObject.transform.DOMove(movePosSecond, BoardManager._timer).OnComplete(() =>
+                gameObject.transform.DOMove(movePosSecond, BoardManager.Timer).OnComplete(() =>
                 {
                     boardSecond.SetMarbles(this);
                     transferAreaPoint = false;
@@ -61,7 +60,7 @@ public class TransferArea : MonoBehaviour
                 });
                 break;
             case false:
-                gameObject.transform.DOMove(movePosFirst, BoardManager._timer).OnComplete(() =>
+                gameObject.transform.DOMove(movePosFirst, BoardManager.Timer).OnComplete(() =>
                 {
                     boardFirst.SetMarbles(this);
                     transferAreaPoint = true;

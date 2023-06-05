@@ -10,29 +10,17 @@ using UnityEngine.PlayerLoop;
 public class BoardManager : MonoBehaviour
 {
     #region Variables
-    [SerializeField] private List<Board> SecondBoards = new();
-    [SerializeField] private List<Board> boards = new();
-    public List<Board> Boards
-    {
-        get
-        {
-            return boards;
-        }
-        private set
-        {
+    [SerializeField] private List<Board> _secondBoards = new();
+    [SerializeField] public List<Board> Boards = new();
+    [SerializeField] private Vector3 _midVec, _downVec, _upVec;
 
-        }
-    }
-    [SerializeField] Vector3 midVec, downVec, upVec;
-    [SerializeField] AudioSource _audioSourceBack;
-
-    public static float _timer = 0.25f;
+    public static float Timer = 0.25f;
     private int _boardCount;
-    readonly List<Board> allBoards = new List<Board>();
+    readonly List<Board> _allBoards = new List<Board>();
     #endregion
 
 
-    private void Awake()
+    private void OnEnable()
     {
         RandomMarble();
         LoadBoards();
@@ -40,73 +28,74 @@ public class BoardManager : MonoBehaviour
     }
 
     #region Fucntions
+
     private void RandomMarble() // Randomize Algorithm.
     {
-        List<BoardMarble> allMarbles = new List<BoardMarble>();
-        List<int> MarbleTempCount = new List<int>();
-        List<int> BoardTempCount = new List<int>();
+        List<BoardMarble> _allMarbles = new List<BoardMarble>();
+        List<int> _marbleTempCount = new List<int>();
+        List<int> _boardTempCount = new List<int>();
 
-        foreach (var item in boards)
+        foreach (var item in Boards)
         {
             if (item != null)
             {
-                allBoards.Add(item);
+                _allBoards.Add(item);
             }
         }
-        foreach (var item in SecondBoards)
+        foreach (var item in _secondBoards)
         {
-            allBoards.Add(item);
+            _allBoards.Add(item);
         }
-        foreach (var item in allBoards)
+        foreach (var item in _allBoards)
         {
             foreach (var marbles in item.Marbles)
             {
                 if (marbles != null)
                 {
 
-                    allMarbles.Add(marbles);
+                    _allMarbles.Add(marbles);
                 }
             }
         }
 
 
 
-        for (int i = 0; i < allBoards.Count; i++)
+        for (int i = 0; i < _allBoards.Count; i++)
         {
-            int randomCountBoard = Random.Range(0, allBoards.Count);
-            while (BoardTempCount.Contains(randomCountBoard))
+            int randomCountBoard = Random.Range(0, _allBoards.Count);
+            while (_boardTempCount.Contains(randomCountBoard))
             {
-                randomCountBoard = Random.Range(0, allBoards.Count);
+                randomCountBoard = Random.Range(0, _allBoards.Count);
             }
-            BoardTempCount.Add(randomCountBoard);
-            if (allBoards[randomCountBoard].Color.name != "White")
+            _boardTempCount.Add(randomCountBoard);
+            if (_allBoards[randomCountBoard].Color.name != "White")
             {
 
                 for (int b = 0; b < 17; b++)
                 {
 
-                    int randomCountMarble = Random.Range(0, allMarbles.Count);
-                    while (MarbleTempCount.Contains(randomCountMarble))
+                    int randomCountMarble = Random.Range(0, _allMarbles.Count);
+                    while (_marbleTempCount.Contains(randomCountMarble))
                     {
-                        randomCountMarble = Random.Range(0, allMarbles.Count);
+                        randomCountMarble = Random.Range(0, _allMarbles.Count);
                     }
-                    MarbleTempCount.Add(randomCountMarble);
-                    allMarbles[randomCountMarble].MarbleColorValue = (int)allBoards[randomCountBoard].BoardColors;
-                    allMarbles[randomCountMarble].MarbleDye(allBoards[randomCountBoard].Color);
+                    _marbleTempCount.Add(randomCountMarble);
+                    _allMarbles[randomCountMarble].MarbleColorValue = (int)_allBoards[randomCountBoard].BoardColors;
+                    _allMarbles[randomCountMarble].MarbleDye(_allBoards[randomCountBoard].Color);
                 }
             }
             else
             {
                 for (int c = 0; c < 20; c++)
                 {
-                    int randomCountMarble = Random.Range(0, allMarbles.Count);
-                    while (MarbleTempCount.Contains(randomCountMarble))
+                    int randomCountMarble = Random.Range(0, _allMarbles.Count);
+                    while (_marbleTempCount.Contains(randomCountMarble))
                     {
-                        randomCountMarble = Random.Range(0, allMarbles.Count);
+                        randomCountMarble = Random.Range(0, _allMarbles.Count);
                     }
-                    MarbleTempCount.Add(randomCountMarble);
-                    allMarbles[randomCountMarble].MarbleColorValue = (int)allBoards[randomCountBoard].BoardColors;
-                    allMarbles[randomCountMarble].MarbleDye(allBoards[randomCountBoard].Color);
+                    _marbleTempCount.Add(randomCountMarble);
+                    _allMarbles[randomCountMarble].MarbleColorValue = (int)_allBoards[randomCountBoard].BoardColors;
+                    _allMarbles[randomCountMarble].MarbleDye(_allBoards[randomCountBoard].Color);
                 }
             }
         }
@@ -114,7 +103,7 @@ public class BoardManager : MonoBehaviour
     }
     public bool CheckBoards() //Are all boards complete?
     {
-        foreach (var board in allBoards)
+        foreach (var board in _allBoards)
         {
             if (board.CheckAllMarbles() == false)
                 return false;
@@ -127,22 +116,22 @@ public class BoardManager : MonoBehaviour
         if (key)
         {
 
-            SecondBoards[_boardCount].gameObject.transform.DOMove(upVec, 0.75f);
+            _secondBoards[_boardCount].gameObject.transform.DOMove(_upVec, 0.75f);
             _boardCount++;
             ListControl();
-            SecondBoards[_boardCount].gameObject.transform.DOMove(downVec, 0f);
-            SecondBoards[_boardCount].gameObject.transform.DOMove(midVec, 0.75f).OnComplete(() =>
+            _secondBoards[_boardCount].gameObject.transform.DOMove(_downVec, 0f);
+            _secondBoards[_boardCount].gameObject.transform.DOMove(_midVec, 0.75f).OnComplete(() =>
             {
                 gameObject.GetComponent<InputManager>().ButtonPressed = false;
             });
         }
         else
         {
-            SecondBoards[_boardCount].gameObject.transform.DOMove(downVec, 0.75f);
+            _secondBoards[_boardCount].gameObject.transform.DOMove(_downVec, 0.75f);
             _boardCount--;
             ListControl();
-            SecondBoards[_boardCount].gameObject.transform.DOMove(upVec, 0f);
-            SecondBoards[_boardCount].gameObject.transform.DOMove(midVec, 0.75f).OnComplete(() =>
+            _secondBoards[_boardCount].gameObject.transform.DOMove(_upVec, 0f);
+            _secondBoards[_boardCount].gameObject.transform.DOMove(_midVec, 0.75f).OnComplete(() =>
             {
                 gameObject.GetComponent<InputManager>().ButtonPressed = false;
             });
@@ -154,17 +143,17 @@ public class BoardManager : MonoBehaviour
     {
         if (_boardCount < 0)
         {
-            _boardCount = SecondBoards.Count - 1;
+            _boardCount = _secondBoards.Count - 1;
         }
-        if (_boardCount > SecondBoards.Count - 1)
+        if (_boardCount > _secondBoards.Count - 1)
         {
             _boardCount = 0;
         }
     }
     private void LoadBoards() //Secondary board update after change
     {
-        boards[1] = SecondBoards[_boardCount];
-        boards[1].gameObject.SetActive(true);
+        Boards[1] = _secondBoards[_boardCount];
+        Boards[1].gameObject.SetActive(true);
     }
 }
 #endregion
